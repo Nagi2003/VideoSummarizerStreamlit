@@ -10,6 +10,7 @@ from math import ceil
 from textwrap import wrap
 import warnings
 warnings.filterwarnings("ignore")
+import streamlit as st
 
 dotenv.load_dotenv()
 
@@ -79,9 +80,17 @@ def transcribe_audio_whisper(audio_path):
 
 
 def summarize_with_groq(text):
-    api_key = os.environ.get("GROQ_API_KEY")
+    # api_key = os.environ.get("GROQ_API_KEY")
+    # if not api_key:
+    #     raise ValueError("GROQ_API_KEY environment variable is not set.")
+    
+    try:
+        api_key = st.secrets["GROQ_API_KEY"]
+    except Exception:
+        api_key = os.environ.get("GROQ_API_KEY")
+
     if not api_key:
-        raise ValueError("GROQ_API_KEY environment variable is not set.")
+        raise ValueError("GROQ_API_KEY is not set in environment or Streamlit secrets.")
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {api_key}",
