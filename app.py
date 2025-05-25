@@ -36,11 +36,11 @@ if st.button("Generate"):
 
             # Display Summary first
             st.subheader("🔍 Summary")
-            st.text_area(label="Summary", value=summary, height=150)
+            st.text_area(value=summary, height=150)
 
             # Then display Transcript
             st.subheader("📝 Transcript")
-            st.text_area(label="Transcript", value=transcript, height=300)
+            st.text_area(value=transcript, height=300)
 
         else:
             st.error("Transcript generation failed.")
