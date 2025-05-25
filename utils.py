@@ -84,6 +84,7 @@ def summarize_with_groq(text):
     # if not api_key:
     #     raise ValueError("GROQ_API_KEY environment variable is not set.")
     
+    
     try:
         api_key = st.secrets["GROQ_API_KEY"]
     except Exception:
