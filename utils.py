@@ -43,7 +43,6 @@ def download_youtube_audio(url, filename="audio"):
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': f'{filename}.%(ext)s',
-        'ffmpeg_location': r'C:/Users/Nagendra/Downloads/ffmpeg-n7.1.1-19-g4c78a357d0-win64-gpl-shared-7.1/bin',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
